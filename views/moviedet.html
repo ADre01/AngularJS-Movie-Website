@@ -1,0 +1,35 @@
+<div class="container" ng-init="load()">
+    <div class="row">
+        <div class="cf meetings favcard">
+           <h1>{{moviedetails.title}}</h1>
+           <h2>{{moviedetails.tagline}}</h3>
+           <a ng-href="#!/search"><button style="float: left" class="btn-sm btn-primary glyphicon glyphicon-circle-arrow-left"></button></a>
+            <table class="table">
+                <thead>
+                   <tr>
+                    <th>Poster</th>
+                    <th>Description</th>
+                    <th>Year</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img ng-src="https://image.tmdb.org/t/p/w300{{moviedetails.poster_path}}" alt=""></td>
+                        <td>{{moviedetails.overview}}
+                            <br><br><br><br>
+                            <ul>
+                                <li ng-repeat="genre in moviedetails.genres">{{genre.name}}</li>
+                                <li>Runtime: {{moviedetails.runtime}} minutes</li>
+                                <li>Movie Budget: {{moviedetails.budget | currency : fractionsize : 0}}</li>
+                                <li>Revenue: {{moviedetails.revenue | currency : fractionsize : 0}}</li>
+                                <br><br><br>
+                            </ul>
+                        
+                        </td>
+                        <td>{{moviedetails.release_date | date: "yyyy"}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    

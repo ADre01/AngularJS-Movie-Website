@@ -1,0 +1,33 @@
+<div class="card meetings cf container" ng-init="load()">
+    <div class="textintro">
+        <p>Search for a movie and hit Search!</p>
+    </div>
+    <form class="formgroup addmeeting cf" name="myform">
+      <div class="inputwrapper">
+          <input class="form-control" type="text" name="search" placeholder="Search..." ng-model="search" id="search">
+          <button class="btn-sm" type="button" ng-click="searchload()"><span class="glyphicon glyphicon-search"></span></button>
+      </div>
+    </form>
+        
+   <table class="table">
+       <thead>
+           <tr>
+               <th></th>
+               <th>Title</th>
+               <th>Year</th>
+               <th>Rating</th>
+               <th>Action</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr ng-repeat="(key, movie) in movies">
+               <td><img ng-src="https://image.tmdb.org/t/p/w90{{movie.poster_path}}"></td>
+               <td><a href="#!/moviesdetails/{{movie.id}}">{{movie.title}}</a></td>
+               <td>{{movie.release_date | date: "yyyy"}}</td>
+               <td>{{movie.vote_average}}</td>   
+               <td><button id="favorite" type="button" class="btn-sm btn-primary" onclick="$.notify('Added to favorites', 'info')" data-toggle="tooltip" title="Add to favorites" ng-click="addToFav(movie)"><span class="glyphicon glyphicon-ok"></span></button></td>
+           </tr>
+       </tbody>
+   </table>
+</div>  
+

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="cf meetings favcard">
+           <h1>{{movie}}</h1>
+           <a ng-href="#!/favorites"><button style="float: left" class="btn-sm btn-primary glyphicon glyphicon-circle-arrow-left"></button></a>
+            <table class="table">
+                <thead>
+                   <tr>
+                    <th>Poster</th>
+                    <th>Description</th>
+                    <th>Year</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img ng-src="{{poster_path}}" alt=""></td>
+                        <td>{{overview}}</td>
+                        <td>{{year | date: "yyyy"}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
